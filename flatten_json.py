@@ -12,6 +12,7 @@ def flatten(dictionary):
     for key, value in dictionary.items():
         if type(value) == list or type(value) == dict:
             result[key] = DataFrame(json_normalize(value))
+            result[key].columns = [key+'.'+col for col in result[key].columns.tolist()]
         else:
             result[key] = DataFrame([value], columns=[key])
         result[key] = result[key].replace(nan, '', regex=True)
