@@ -1,1 +1,1 @@
-# JSON Flattening
+# JSON Flattening and Denormalization
