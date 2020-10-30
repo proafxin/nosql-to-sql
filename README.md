@@ -1,1 +1,1 @@
-# JSON/Mongo Document Flattening
+# JSON Flattening
