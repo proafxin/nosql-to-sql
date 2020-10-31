@@ -10,7 +10,7 @@ from numpy import (
 def flatten(dictionary):
     result = {}
     for key, value in dictionary.items():
-        if type(value) == list or type(value) == dict:
+        if isinstance(value, list) or isinstance(value, dict):
             result[key] = DataFrame(json_normalize(value))
             result[key].columns = [key+'.'+col for col in result[key].columns.tolist()]
         else:
