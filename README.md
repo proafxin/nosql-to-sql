@@ -1,1 +1,1 @@
-# JSON Flattening and Denormalization
+# NoSQL to SQL conversion 
