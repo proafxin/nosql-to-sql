@@ -46,13 +46,13 @@ def get_types(df, check_rows=100):
                 types[columns[i]] = tmp
     return types
 
-def flatten_auto(df, depth=0, depth_cur=0):
+def flatten_auto(df, depth=0, depth_cur=0, sep='.'):
     if isinstance(df, dict):
         df = json_normalize(df)
     elif isinstance(df, DataFrame):
         df = json_normalize(
             data=df.to_dict('records'),
-            sep='.',
+            sep=sep,
         )
     else:
         raise ValueError('Either dictionary (JSON) or dataframe (array of JSON) objects are supported')
@@ -80,7 +80,7 @@ def flatten_auto(df, depth=0, depth_cur=0):
                 records,
                 record_path=col,
                 meta='_ID_',
-                record_prefix=col+'.',
+                record_prefix=col+sep,
             )
             df_flat = merge(
                 left=df_flat,
