@@ -299,14 +299,26 @@ def get_all_columns(df):
             columns_flat.append(column)
     return columns_flat
 
-def flatten_auto(df):
+def flatten_auto(df, depth=0, depth_cur=0):
     if isinstance(df, dict):
         df = json_normalize(df)
-    else:
+    elif isinstance(df, DataFrame):
         df = json_normalize(
             data=df.to_dict('records'),
-            sep='_',
+            sep='.',
         )
+    else:
+        raise ValueError('Either dictionary (JSON) or dataframe (array of JSON) objects are supported')
+    if depth_cur != depth_cur:
+        raise ValueError('Current depth has to be an integer')
+    if depth != depth:
+        raise ValueError('Max depth has to be an integer')
+    if not isinstance(depth, int):
+        raise ValueError('Max depth has to be an integer')
+    if not isinstance(depth_cur, int):
+        raise ValueError('Depth has to be an integer')
+    if depth <= depth_cur:
+        return df
     df['_ID_'] = [i+1 for i in range(df.shape[0])]
     types = get_types(df)
     columns = df.columns.tolist()
@@ -344,9 +356,4 @@ def flatten_auto(df):
     if num_flat == df.shape[1]:
         return df_flat
     else:
-        return flatten_auto(df_flat)
-
-def flatten_twice(df):
-    df_flat = flatten_auto(df)
-    #df_flat = flatten_auto(df_flat)
-    return df_flat
+        return flatten_auto(df_flat, depth, depth_cur+1)
