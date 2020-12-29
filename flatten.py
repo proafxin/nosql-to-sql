@@ -1,11 +1,7 @@
 from pandas import (
     json_normalize,
     merge,
-    concat,
     DataFrame,
-)
-from numpy import (
-    nan,
 )
 
 HAS_SUBFIELD_LIST = 1
