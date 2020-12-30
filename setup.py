@@ -13,8 +13,8 @@ f = open(join(PWD, 'README.MD'))
 README = f.read()
 
 setup(
-    name='flatten',
-    version='1.3',
+    name='flatten_nosql',
+    version='2.1.2',
     author='Masum Billal',
     author_email='billalmasum93@gmail.com',
     url='https://github.com/proafxin/nosql-to-sql',
@@ -32,9 +32,9 @@ setup(
     python_requires='>=3.6',
     install_requires=['pandas'],
     license='MIT',
-    entry_points={
-        'console_scripts': [
-            'flatten=flattener.flatten',
-        ],
-    },
+    # entry_points={
+    #     'console_scripts': [
+    #         'flattennosql=flattener.flatten',
+    #     ],
+    # },
 )
