@@ -1,3 +1,3 @@
 # NoSQL to SQL conversion 
 
-Check `driver` notebook for an example usage.
+Check `driver-flattening` notebook inside `flattener` directory for an example usage.
