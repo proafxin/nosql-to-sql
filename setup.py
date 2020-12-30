@@ -4,18 +4,11 @@ from setuptools import (
 )
 
 setup(
-    name='nosql_to_sql',
-    version='1.0',
+    name='flatten',
+    version='1.1',
     author_email='billalmasum93@gmail.com',
-    url='https://github.com/proafxin/no-sql-to-sql',
-    project_urls={
-        #'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
-        #'Funding': 'https://donate.pypi.org',
-        #'Say Thanks!': 'http://saythanks.io/to/example',
-        'Source': 'https://github.com/proafxin/no-sql-to-sql',
-        #'Tracker': 'https://github.com/pypa/sampleproject/issues',
-    },
-    description='This module converts denormalized NoSQL data to plain SQL data.',
+    url='https://github.com/proafxin/nosql-to-sql',
+    description='This module converts NoSQL data to plain SQL data.',
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
