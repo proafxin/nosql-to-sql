@@ -2,14 +2,28 @@ from setuptools import (
     setup,
     find_packages,
 )
+from os.path import (
+    abspath,
+    dirname,
+    join,
+)
+
+PWD = dirname(abspath(__file__))
+f = open(join(PWD, 'README.MD'))
+README = f.read()
 
 setup(
     name='flatten',
     version='1.1',
+    author='Masum Billal',
     author_email='billalmasum93@gmail.com',
     url='https://github.com/proafxin/nosql-to-sql',
     description='This module converts NoSQL data to plain SQL data.',
-    packages=find_packages(),
+    long_description=README,
+    long_description_content_type='text/markdown',
+    packages=[
+        'flattener',
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -18,4 +32,9 @@ setup(
     python_requires='>=3.6',
     install_requires=['pandas'],
     license='MIT',
+    entry_points={
+        'console_scripts': [
+            'flatten=flattener.flatten',
+        ],
+    },
 )
