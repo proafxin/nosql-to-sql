@@ -14,7 +14,7 @@ README = f.read()
 
 setup(
     name='flatten',
-    version='1.1',
+    version='1.3',
     author='Masum Billal',
     author_email='billalmasum93@gmail.com',
     url='https://github.com/proafxin/nosql-to-sql',
