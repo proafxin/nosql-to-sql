@@ -1,3 +1,6 @@
+# What it does
+This package takes NoSQL data as input and transforms it into flattened SQL-like data. It can be useful in many cases. For example, imagine you have an application that uses `mongo` as the database but your data warehouse is `Google BigQuery` which is based on RDBMS, so basically SQL. In this case, you will have to flatten your data so you can push them to `BigQuery` tables.
+
 # Installation
 Use `pip install flatten-nosql` to install the package. You will need `pandas` installed on your machine since this library depends on it.
 
